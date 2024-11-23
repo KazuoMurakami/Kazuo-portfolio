@@ -1,15 +1,17 @@
-import About from "@/components/sections/about";
-import Contact from "@/components/sections/contact";
-import Hero from "@/components/sections/hero";
-import { Projects } from "@/components/sections/projects";
+import { Contact } from '@/components/Contact'
+import { Header } from '@/components/Header'
+import { Hero } from '@/components/Hero'
+import { SkillsAndProjects } from '@/components/SkillsAndProjects'
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
-    </>
-  );
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <SkillsAndProjects />
+        <Contact />
+      </main>
+    </div>
+  )
 }
