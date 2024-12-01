@@ -4,9 +4,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'John Doe - IT Professional Portfolio',
-  description:
-    'Minimalist portfolio showcasing the skills and projects of John Doe, an IT Professional',
+  title: 'Octavio Murakami - IT Professional Portfolio',
+  description: 'Portfolio Profissional',
 }
 
 export default function RootLayout({
@@ -15,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="pt-br" className="scroll-smooth">
       <body className={`${inter.className} overflow-x-hidden`}>{children}</body>
     </html>
   )

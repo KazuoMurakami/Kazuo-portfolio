@@ -10,8 +10,12 @@ export function SkillsAndProjects() {
       <div className="container mx-auto">
         <Tabs defaultValue="skills" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="projects">Projects</TabsTrigger>
+            <TabsTrigger value="skills" className="border text-white ">
+              Skills
+            </TabsTrigger>
+            <TabsTrigger value="projects" className="border text-white">
+              Projects
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="skills">
             <Skills />

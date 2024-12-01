@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,9 +12,7 @@ export function Header() {
     <header className="fixed w-full z-50 bg-black bg-opacity-50 backdrop-blur-md">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold">
-            JD
-          </Link>
+          <Image src="/logo.svg" alt="logo" width={50} height={50} />
           <div className="hidden md:flex space-x-8">
             <NavLink href="#home">Home</NavLink>
             <NavLink href="#skills">Skills</NavLink>
