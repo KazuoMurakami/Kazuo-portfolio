@@ -9,11 +9,14 @@ export function SkillsAndProjects() {
     <section id="skills-and-projects" className="py-20 px-4">
       <div className="container mx-auto">
         <Tabs defaultValue="skills" className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="skills" className="border text-white ">
+          <TabsList className="grid w-full grid-cols-2 ">
+            <TabsTrigger value="skills" className="border text-white bg-black ">
               Skills
             </TabsTrigger>
-            <TabsTrigger value="projects" className="border text-white">
+            <TabsTrigger
+              value="projects"
+              className="border text-white bg-black"
+            >
               Projects
             </TabsTrigger>
           </TabsList>

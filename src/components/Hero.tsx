@@ -33,7 +33,7 @@ export function Hero() {
         >
           <a
             href="#contact"
-            className="border border-white px-8 py-3 text-white hover-accent transition-colors"
+            className="border px-8 py-3 text-white  transition-colors bg-black"
           >
             Get in Touch
           </a>
