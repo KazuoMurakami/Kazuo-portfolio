@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { Button } from './ui/button'
 
 interface Project {
   title: string
@@ -11,14 +12,15 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-stack e-commerce solution with React and Node.js',
-    image: '/placeholder.svg?height=400&width=600',
+    title: 'Blog',
+    description: 'Blog criado com NextJS, Typescript, Prisma e MySQL',
+    image: '/blog.png',
   },
   {
-    title: 'AI-powered Chatbot',
-    description: 'An intelligent chatbot using Python and machine learning',
-    image: '/placeholder.svg?height=400&width=600',
+    title: 'FinanceIA',
+    description:
+      'Aplicativo de controle financeiro, utilizando NextJS, Prisma, Postgres, Typescript',
+    image: '/finance.jpg',
   },
   {
     title: 'Cloud-based CRM',
@@ -45,9 +47,14 @@ export function Projects() {
             height={400}
             className="w-full h-48 object-cover"
           />
-          <div className="p-6">
-            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-            <p className="text-accent">{project.description}</p>
+          <div className="p-6 flex flex-col gap-4">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <p className="text-accent">{project.description}</p>
+            </div>
+            <Button className="bg-gray-950 rounded text-white" variant={'link'}>
+              Acesse o site/ou o github do projeto
+            </Button>
           </div>
         </motion.div>
       ))}

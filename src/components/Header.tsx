@@ -15,8 +15,8 @@ export function Header() {
           <Image src="/logo.svg" alt="logo" width={50} height={50} />
           <div className="hidden md:flex space-x-8">
             <NavLink href="#home">Home</NavLink>
-            <NavLink href="#skills">Habilidades</NavLink>
-            <NavLink href="#projects">Projetos</NavLink>
+            <NavLink href="#skills-and-projects">Habilidades</NavLink>
+            <NavLink href="#skills-and-projects">Projetos</NavLink>
             <NavLink href="#contact">Contatos</NavLink>
           </div>
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
@@ -46,7 +46,10 @@ export function Header() {
             <NavLink href="#home" onClick={() => setIsOpen(false)}>
               Home
             </NavLink>
-            <NavLink href="#skills" onClick={() => setIsOpen(false)}>
+            <NavLink
+              href="#skills-and-projects"
+              onClick={() => setIsOpen(false)}
+            >
               Skills
             </NavLink>
             <NavLink href="#projects" onClick={() => setIsOpen(false)}>

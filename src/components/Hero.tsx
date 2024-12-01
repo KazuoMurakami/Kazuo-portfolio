@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { BackgroundLines } from './ui/background-lines'
 
 export function Hero() {
   return (
@@ -8,7 +9,7 @@ export function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center px-4"
     >
-      <div className="text-center">
+      <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,19 +27,7 @@ export function Hero() {
           Desenvolvedor Full-Stack Inovador e Criativo, Transformando Ideias em
           Realidade com Tecnologia.
         </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <a
-            href="#contact"
-            className="border px-8 py-3 text-white  transition-colors bg-black"
-          >
-            Get in Touch
-          </a>
-        </motion.div>
-      </div>
+      </BackgroundLines>
     </section>
   )
 }

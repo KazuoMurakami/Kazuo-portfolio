@@ -22,7 +22,7 @@ export function Skills() {
           transition={{ duration: 0.5, delay: index * 0.1 }}
           className="border border-accent p-4 text-center hover-accent transition-colors hover:text-white"
         >
-          <p className="text-lg">{skill}</p>
+          <p className="text-lg cursor-pointer">{skill}</p>
         </motion.div>
       ))}
     </div>
