@@ -3,11 +3,21 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from './ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog'
+import Link from 'next/link'
 
 interface Project {
   title: string
   description: string
   image: string
+  github: string
 }
 
 const projects: Project[] = [
@@ -15,17 +25,20 @@ const projects: Project[] = [
     title: 'Blog',
     description: 'Blog criado com NextJS, Typescript, Prisma e MySQL',
     image: '/blog.png',
+    github: 'https://github.com/KazuoMurakami/Post-TECH',
   },
   {
     title: 'FinanceIA',
     description:
       'Aplicativo de controle financeiro, utilizando NextJS, Prisma, Postgres, Typescript',
     image: '/finance.jpg',
+    github: 'https://github.com/KazuoMurakami/fullstackweek-financeai',
   },
   {
-    title: 'Cloud-based CRM',
+    title: 'InOrbit',
     description: 'A customer relationship management system built on AWS',
     image: '/placeholder.svg?height=400&width=600',
+    github: 'https://github.com/KazuoMurakami/InOrbit',
   },
 ]
 
@@ -50,11 +63,29 @@ export function Projects() {
           <div className="p-6 flex flex-col gap-4">
             <div>
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+
               <p className="text-accent">{project.description}</p>
             </div>
-            <Button className="bg-gray-950 rounded text-white" variant={'link'}>
-              Acesse o site/ou o github do projeto
-            </Button>
+            <Link
+              className="bg-gray-950 rounded text-white p-4 flex justify-center"
+              href={project.github}
+              target="_blank"
+            >
+              <span>Acesse o site/ou o github do projeto</span>
+            </Link>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="link">Detalhes do projeto</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Edit profile</DialogTitle>
+                  <DialogDescription>
+                    Make changes to your profile here. Click save when
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
         </motion.div>
       ))}
