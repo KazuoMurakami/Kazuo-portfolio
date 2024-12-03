@@ -3,14 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from './ui/button'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from './ui/dialog'
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import Link from 'next/link'
 
 interface Project {
@@ -78,12 +71,10 @@ export function Projects() {
                 <Button variant="link">Detalhes do projeto</Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle>Edit profile</DialogTitle>
-                  <DialogDescription>
-                    Make changes to your profile here. Click save when
-                  </DialogDescription>
-                </DialogHeader>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus, quibusdam, commodi dolores excepturi recusandae
+                debitis in repudiandae error porro id at nostrum fuga veritatis
+                dolore animi eligendi, accusantium temporibus quos.
               </DialogContent>
             </Dialog>
           </div>

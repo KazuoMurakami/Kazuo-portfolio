@@ -16,7 +16,6 @@ export function Header() {
           <div className="hidden md:flex space-x-8">
             <NavLink href="#home">Home</NavLink>
             <NavLink href="#skills-and-projects">Habilidades</NavLink>
-            <NavLink href="#skills-and-projects">Projetos</NavLink>
             <NavLink href="#contact">Contatos</NavLink>
           </div>
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
