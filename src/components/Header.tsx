@@ -12,10 +12,10 @@ export function Header() {
     <header className="fixed w-full z-50 bg-white bg-opacity-50 backdrop-blur-md border-b-2">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center ">
-          <Image src="/logo.svg" alt="logo" width={50} height={50} />
+          <Image src="/Subtract.svg" alt="logo" width={50} height={50} />
           <div className="hidden md:flex space-x-8">
             <NavLink href="#home">Home</NavLink>
-            <NavLink href="#skills-and-projects">Habilidades</NavLink>
+            <NavLink href="#projects">Habilidades</NavLink>
             <NavLink href="#contact">Contatos</NavLink>
           </div>
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
@@ -44,12 +44,6 @@ export function Header() {
           >
             <NavLink href="#home" onClick={() => setIsOpen(false)}>
               Home
-            </NavLink>
-            <NavLink
-              href="#skills-and-projects"
-              onClick={() => setIsOpen(false)}
-            >
-              Skills
             </NavLink>
             <NavLink href="#projects" onClick={() => setIsOpen(false)}>
               Projects
