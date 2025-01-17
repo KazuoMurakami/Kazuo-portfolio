@@ -56,6 +56,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
     "react-element-to-jsx-string": "^15.0.0",
+    "react-error-boundary": "^5.0.0",
     "react-hook-form": "^7.53.2",
     "react-resizable-panels": "^2.1.7",
     "recharts": "^2.13.3",

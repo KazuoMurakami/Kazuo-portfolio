@@ -14,9 +14,9 @@ export function Header() {
         <div className="flex justify-between items-center ">
           <Image src="/Subtract.svg" alt="logo" width={50} height={50} />
           <div className="hidden md:flex space-x-8">
-            <NavLink href="#home">Home</NavLink>
-            <NavLink href="#projects">Habilidades</NavLink>
-            <NavLink href="#contact">Contatos</NavLink>
+            <NavLink href="/#home">Home</NavLink>
+            <NavLink href="/#projects">Habilidades</NavLink>
+            <NavLink href="/profile">Contatos</NavLink>
           </div>
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             <svg
