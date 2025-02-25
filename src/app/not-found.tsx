@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Search, Home, ArrowLeft } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 export default function NotFound() {
+  const router = useRouter()
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500 p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-2xl overflow-hidden">
@@ -64,7 +66,7 @@ export default function NotFound() {
               >
                 <Link
                   href="#"
-                  onClick={() => window.history.back()}
+                  onClick={() => router.back()}
                   className="flex items-center justify-center"
                 >
                   <ArrowLeft className="mr-2 h-4 w-4" />

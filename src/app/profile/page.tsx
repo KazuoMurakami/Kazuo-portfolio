@@ -52,13 +52,15 @@ export default function DeveloperPortfolio() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-600">
-                Estou sempre em busca de novos desafios e oportunidades para
-                expandir meus conhecimentos e habilidades. Com uma sólida
-                experiência em TypeScript, JavaScript e frameworks modernos como
-                Next.js, estou pronto para contribuir com projetos inovadores e
-                de alta qualidade. Meu objetivo é ingressar na área de TI e
-                colaborar com equipes dinâmicas para criar soluções eficientes e
-                impactantes.
+                Desenvolvedor Full Stack com foco em tecnologias JavaScript
+                modernas e forte domínio em TypeScript, React e Next.js. Possuo
+                experiência prática no desenvolvimento de aplicações web
+                escaláveis e performance otimizada. Busco constantemente
+                aprimorar minhas habilidades técnicas e manter-me atualizado com
+                as melhores práticas do mercado. Sempre visando a melhor
+                experiência do usuário e código de alta qualidade. Procuro
+                oportunidades para aplicar minha expertise em projetos
+                desafiadores e contribuir com equipes inovadoras.
               </p>
             </CardContent>
           </Card>
@@ -70,18 +72,18 @@ export default function DeveloperPortfolio() {
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2">
-                <Badge>HTML5</Badge>
-                <Badge>CSS3</Badge>
-                <Badge>JavaScript</Badge>
-                <Badge>TypeScript</Badge>
-                <Badge>React</Badge>
-                <Badge>Next.js</Badge>
-                <Badge>Node.js</Badge>
-                <Badge>Fastify</Badge>
-                <Badge>PostgreSQL</Badge>
-                <Badge>Git</Badge>
-                <Badge>Responsive Design</Badge>
-                <Badge>Tailwind CSS</Badge>
+                <Badge variant="outline">HTML5</Badge>
+                <Badge variant="outline">CSS3</Badge>
+                <Badge variant="outline">JavaScript</Badge>
+                <Badge variant="outline">TypeScript</Badge>
+                <Badge variant="outline">React</Badge>
+                <Badge variant="outline">Next.js</Badge>
+                <Badge variant="outline">Node.js</Badge>
+                <Badge variant="outline">Fastify</Badge>
+                <Badge variant="outline">PostgreSQL</Badge>
+                <Badge variant="outline">Git</Badge>
+                <Badge variant="outline">Responsive Design</Badge>
+                <Badge variant="outline">Tailwind CSS</Badge>
               </div>
             </CardContent>
           </Card>

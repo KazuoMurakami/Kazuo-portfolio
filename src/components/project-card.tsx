@@ -7,6 +7,7 @@ interface ProjectCardProps {
   description: string
   image: string
   github?: string
+  category?: string
   technologies?: string[]
 }
 
@@ -15,6 +16,7 @@ export function ProjectCard({
   description,
   image,
   github,
+  category,
   technologies,
 }: ProjectCardProps) {
   return (
@@ -24,11 +26,13 @@ export function ProjectCard({
           src={image || '/finance.jpg'}
           alt={title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-105 rounded"
         />
       </div>
       <div className="p-4">
-        <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
+        <h3 className="text-xl font-semibold tracking-tight">
+          {title} - <span className="text-sm font-light">{category}</span>
+        </h3>
         <p className="mt-2 text-sm text-muted-foreground">{description}</p>
 
         <div className="mt-4 flex flex-wrap gap-2">
