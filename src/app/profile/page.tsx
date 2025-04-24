@@ -3,12 +3,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Github, Linkedin, Mail } from 'lucide-react'
+import { Experience } from './experience'
 
 export default function DeveloperPortfolio() {
   return (
     <>
       <Header />
-      <div className=" bg-gradient-to-b from-gray-100 to-gray-200 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-b from-gray-100 to-gray-200 py-12 px-4 sm:px-6 lg:px-8">
         <main className="max-w-4xl mx-auto space-y-8 mt-10">
           {/* Header Section */}
           <header className="text-center">
@@ -36,7 +37,7 @@ export default function DeveloperPortfolio() {
                 <Linkedin className="w-6 h-6" />
               </a>
               <a
-                href="otaviokazuo12@hotmail.com"
+                href="mailto:octaviokazuo12@hotmail.com"
                 target="_blank"
                 className="text-gray-600 hover:text-gray-900"
               >
@@ -62,6 +63,13 @@ export default function DeveloperPortfolio() {
                 oportunidades para aplicar minha expertise em projetos
                 desafiadores e contribuir com equipes inovadoras.
               </p>
+            </CardContent>
+          </Card>
+
+          {/* Experience Section */}
+          <Card className="bg-white">
+            <CardContent className="pt-6">
+              <Experience />
             </CardContent>
           </Card>
 

@@ -102,7 +102,6 @@ export const projects: Project[] = [
     features: [
       'Dashboard de controle financeiro',
       'Análise de gastos por categoria',
-      'Integração com IA para insights financeiros',
       'Geração de relatórios personalizados',
       'Interface responsiva e intuitiva',
     ],
@@ -124,13 +123,12 @@ export const projects: Project[] = [
     title: 'Nlw-Nodejs',
     description:
       'Sistema de gestão de participantes para eventos presenciais com check-in e emissão de credenciais.',
-    image: '',
+    image: '/gem.jpg',
     github: 'https://github.com/KazuoMurakami/Nlw-Nodejs',
-    category: 'web',
+    category: 'back-end',
     technologies: ['Node.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Express'],
     features: [
       'Cadastro e gestão de participantes',
-      'Sistema de check-in com QR Code',
       'Emissão de credenciais personalizadas',
       'Relatórios de presença em tempo real',
       'API RESTful para integração com aplicativo móvel',
