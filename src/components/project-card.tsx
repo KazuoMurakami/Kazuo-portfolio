@@ -1,10 +1,11 @@
 import { ArrowUpRight, Github } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Badge } from './ui/badge'
 
 interface ProjectCardProps {
+  id: string
   title: string
-  description: string
   image: string
   github?: string
   category?: string
@@ -12,8 +13,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({
+  id,
   title,
-  description,
   image,
   github,
   category,
@@ -33,16 +34,14 @@ export function ProjectCard({
         <h3 className="text-xl font-semibold tracking-tight">
           {title} - <span className="text-sm font-light">{category}</span>
         </h3>
-        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-
         <div className="mt-4 flex flex-wrap gap-2">
           {technologies?.map((tech) => (
-            <span
+            <Badge
               key={tech}
-              className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium"
+              className="inline-flex items-center rounded-md  px-2 py-1 text-xs font-medium"
             >
               {tech}
-            </span>
+            </Badge>
           ))}
         </div>
         <div className="mt-4 flex items-center gap-4">
@@ -57,7 +56,7 @@ export function ProjectCard({
           )}
 
           <Link
-            href={'/projetos/1'}
+            href={`/projetos/${id}`}
             className="inline-flex items-center gap-1 text-sm hover:text-primary"
           >
             <ArrowUpRight className="h-4 w-4" />
