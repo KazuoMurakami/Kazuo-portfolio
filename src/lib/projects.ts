@@ -146,4 +146,26 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: '4',
+    title: 'Scraper de Produtos',
+    description:
+      'sistema de automação de cadastro de produtos desenvolvido para a REDD Brindes',
+    image: '/erp.jpeg',
+    category: 'back-end',
+    technologies: ['python', 'selenium', 'beautifulsoup', 'pandas'],
+    features: [
+      'Coletar informações do excel',
+      'Coletar informações do site',
+      'Preencher informações no sistema ERP',
+      'Gerar relatórios de erros',
+    ],
+    highlights: [
+      {
+        title: 'Cadastro de produto',
+        description:
+          'sistema de automação de cadastro de produtos desenvolvido para a REDD Brindes. Este aplicativo foi criado para otimizar e automatizar o processo de cadastro de produtos, eliminando tarefas repetitivas, reduzindo o tempo gasto e minimizando erros manuais.',
+      },
+    ],
+  },
 ]
