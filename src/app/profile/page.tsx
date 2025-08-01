@@ -53,13 +53,12 @@ export default function DeveloperPortfolio() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-600">
-                Desenvolvedor Full Stack com foco em tecnologias JavaScript
-                modernas e forte domínio em TypeScript, React e Next.js. Possuo
-                experiência prática no desenvolvimento de aplicações web
-                escaláveis e performance otimizada. Busco constantemente
-                aprimorar minhas habilidades técnicas e manter-me atualizado com
-                as melhores práticas do mercado. Sempre visando a melhor
-                experiência do usuário e código de alta qualidade. Procuro
+                Desenvolvedor Full Stack com foco em tecnologias como
+                JavaScript, TypeScript, React e Next.js. Possuo experiência
+                prática no desenvolvimento de aplicações web. Busco
+                constantemente aprimorar minhas habilidades técnicas e manter-me
+                atualizado com as melhores práticas do mercado. Sempre visando a
+                melhor experiência do usuário e código de qualidade. Procuro
                 oportunidades para aplicar minha expertise em projetos
                 desafiadores e contribuir com equipes inovadoras.
               </p>
@@ -92,6 +91,9 @@ export default function DeveloperPortfolio() {
                 <Badge variant="outline">Git</Badge>
                 <Badge variant="outline">Responsive Design</Badge>
                 <Badge variant="outline">Tailwind CSS</Badge>
+                <Badge variant="outline">N8N</Badge>
+                <Badge variant="outline">Z-API</Badge>
+                <Badge variant="outline">Supabase</Badge>
               </div>
             </CardContent>
           </Card>

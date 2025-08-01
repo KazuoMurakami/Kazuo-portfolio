@@ -6,6 +6,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from '@radix-ui/react-accordion'
 import { Briefcase, Calendar, GraduationCap } from 'lucide-react'
 
 interface ExperienceItem {
@@ -14,6 +20,10 @@ interface ExperienceItem {
   period: string
   description: string
   type: 'trabalho' | 'educação'
+  information?: {
+    title: string
+    description: string
+  }[]
   skills?: string[]
 }
 
@@ -26,7 +36,29 @@ export function Experience() {
       period: 'Jan 2025 - Presente',
       description:
         'Responsável pelo desenvolvimento de automações de processos internos e analista QA de sistemas.',
-      skills: ['React', 'TypeScript', 'Node.js', 'Next.js', 'Python'],
+      information: [
+        {
+          title: 'Criação de um chatbot para consulta de estoque',
+          description:
+            'Criação de um chatbot para consulta de estoque, utilizando a API do OpenAI para gerar respostas baseadas em informações do estoque. O chatbot foi desenvolvido utilizando N8N, Z-API, Supabase, API de fornecedores e OPENAI.',
+        },
+        {
+          title: 'Adição de features no sistema interno de produção',
+          description:
+            'Fiquei responsavel em dar manutenção em um sistema utilizado pela empresa onde é gerenciado o controle de entrada de pedido, status de recebimento, status de produção, status de entrega, entre outros. adicionando melhorias como calculadora de preços baseado no estoque do fornecedor, pequenas correções de bugs e melhorias de usabilidade e integração de API de fornecedores.',
+        },
+      ],
+      skills: [
+        'React',
+        'TypeScript',
+        'Node.js',
+        'Next.js',
+        'Python',
+        'N8N',
+        'Z-API',
+        'Supabase',
+        'OPENAI',
+      ],
     },
     {
       type: 'educação',
@@ -37,7 +69,6 @@ export function Experience() {
         'Formação em algoritmos, estruturas de dados, desenvolvimento de software e sistemas distribuídos, com foco em tecnologias web.',
       skills: ['JavaScript', 'Python', 'Banco de Dados'],
     },
-    // Você pode adicionar mais experiências aqui
   ]
 
   return (
@@ -79,6 +110,25 @@ export function Experience() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-600 mb-4">{experience.description}</p>
+              {experience.information && (
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="w-full p-8"
+                  defaultValue="1"
+                >
+                  {experience.information.map((info, i) => (
+                    <AccordionItem key={i} value={info.title}>
+                      <AccordionTrigger className="">
+                        {info.title}
+                      </AccordionTrigger>
+                      <AccordionContent className="flex flex-col gap-4 text-balance text-gray-500 p-2">
+                        {info.description}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              )}
               {experience.skills && (
                 <div className="flex flex-wrap gap-2">
                   {experience.skills.map((skill, i) => (
