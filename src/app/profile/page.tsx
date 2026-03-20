@@ -46,7 +46,6 @@ export default function DeveloperPortfolio() {
             </div>
           </header>
 
-          {/* About Section */}
           <Card className="bg-white">
             <CardHeader>
               <CardTitle>Perfil</CardTitle>
@@ -65,14 +64,12 @@ export default function DeveloperPortfolio() {
             </CardContent>
           </Card>
 
-          {/* Experience Section */}
           <Card className="bg-white">
             <CardContent className="pt-6">
               <Experience />
             </CardContent>
           </Card>
 
-          {/* Skills Section */}
           <Card className="bg-white">
             <CardHeader>
               <CardTitle>Skills</CardTitle>
@@ -98,7 +95,6 @@ export default function DeveloperPortfolio() {
             </CardContent>
           </Card>
 
-          {/* Contact Section */}
           <Card className="bg-white">
             <CardHeader>
               <CardTitle>Entre em contato!</CardTitle>

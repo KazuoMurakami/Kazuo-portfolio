@@ -1,16 +1,21 @@
-'use client'
+import { Navbar } from '@/components/navbar'
+import { HeroSection } from '@/components/sections/hero'
+import { TechStackSection } from '@/components/sections/tech-stack'
+import { ProjectsSection } from '@/components/sections/projects'
+import { SkillsSection } from '@/components/sections/skills'
+import { ExperienceSection } from '@/components/sections/experience'
+import { ContactFooterSection } from '@/components/sections/contact-footer'
 
-import { Header } from '@/components/Header'
-import { Hero } from '@/components/Hero'
-import { ProjectsSection } from '@/components/project'
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <ProjectsSection />
-      </main>
-    </div>
+    <main className="bg-black overflow-visible">
+      <Navbar />
+      <HeroSection />
+      <TechStackSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ExperienceSection />
+      <ContactFooterSection />
+    </main>
   )
 }

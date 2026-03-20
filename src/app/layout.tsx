@@ -1,11 +1,25 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+// eslint-disable-next-line camelcase
+import { Instrument_Serif, Barlow } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+// eslint-disable-next-line camelcase
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: 'italic',
+  variable: '--font-heading',
+})
+
+const barlow = Barlow({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-body',
+})
 
 export const metadata = {
-  title: 'Octavio Murakami - IT Professional Portfolio',
-  description: 'Portfolio Profissional',
+  title: 'Octavio Murakami | Full-Stack Developer',
+  description:
+    'Desenvolvedor Full-Stack inovador e criativo, transformando ideias em realidade com tecnologia.',
 }
 
 export default function RootLayout({
@@ -14,8 +28,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-br" className="scroll-smooth">
-      <body className={`${inter.className} overflow-x-hidden`}>{children}</body>
+    <html
+      lang="pt-br"
+      className={`${instrumentSerif.variable} ${barlow.variable} scroll-smooth`}
+    >
+      <body className="font-sans overflow-x-hidden">{children}</body>
     </html>
   )
 }

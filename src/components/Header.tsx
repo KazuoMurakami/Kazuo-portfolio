@@ -3,17 +3,15 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed w-full z-50 bg-white bg-opacity-50 backdrop-blur-md border-b-2">
+    <header className="fixed w-full z-50 bg-black/10 backdrop-blur-md border-b-2">
       <nav className="container mx-auto px-6 py-4">
-        <div className="flex justify-between items-center ">
-          <Image src="/Subtract.svg" alt="logo" width={50} height={50} />
-          <div className="hidden md:flex space-x-8">
+        <div className="flex justify-center items-center ">
+          <div className="hidden md:flex space-x-8 *:text-black">
             <NavLink href="/#home">Home</NavLink>
             <NavLink href="/#projects">Habilidades</NavLink>
             <NavLink href="/profile">Contatos</NavLink>
