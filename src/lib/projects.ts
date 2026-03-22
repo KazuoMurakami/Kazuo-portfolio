@@ -168,4 +168,67 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: '5',
+    title: 'in.orbit',
+    description:
+      'Aplicação fullstack de rastreamento de metas semanais com dashboard de progresso, construída durante o NLW Pocket da Rocketseat.',
+    image: '/inorbit.svg',
+    github: 'https://github.com/KazuoMurakami/nlw-pocket',
+    category: 'web',
+    technologies: [
+      'React',
+      'TypeScript',
+      'Fastify',
+      'Drizzle ORM',
+      'PostgreSQL',
+      'Tailwind CSS',
+      'Radix UI',
+      'TanStack React Query',
+      'Zod',
+    ],
+    features: [
+      'Cadastro de metas com frequência semanal desejada (1-7x)',
+      'Marcação de conclusão com validação de limite semanal',
+      'Resumo semanal com progresso por dia da semana',
+      'Barra de progresso visual com gradiente',
+      'Agendamento de metas para datas específicas',
+      'Interface dark mode responsiva',
+    ],
+    highlights: [
+      {
+        title: 'Queries SQL Avançadas',
+        description:
+          'Backend utiliza CTEs (Common Table Expressions) encadeadas com funções de agregação JSON do PostgreSQL (JSON_AGG, JSON_BUILD_OBJECT, JSON_OBJECT_AGG) para retornar dados estruturados diretamente do banco.',
+      },
+      {
+        title: 'Type-Safety End-to-End',
+        description:
+          'Validação com Zod tanto no frontend (React Hook Form) quanto no backend (Fastify Type Provider), garantindo tipagem forte em toda a aplicação.',
+      },
+    ],
+    sections: [
+      {
+        title: 'Frontend',
+        content: [
+          'React 18 com TypeScript e Vite para build rápido',
+          'TanStack React Query para cache, invalidação e sincronização de dados',
+          'React Hook Form + Zod para formulários performáticos com validação por schema',
+          'Radix UI (Dialog, Progress, RadioGroup) como base de componentes acessíveis',
+          'Tailwind CSS com Tailwind Variants para sistema de design componentizado',
+          'Day.js com locale pt-BR para formatação de datas',
+        ],
+      },
+      {
+        title: 'Backend',
+        content: [
+          'Fastify com Zod Type Provider para validação automática de rotas',
+          'Drizzle ORM com query builder type-safe e suporte a raw SQL',
+          'PostgreSQL via Docker com migrations versionadas pelo Drizzle Kit',
+          'CUID2 para geração de IDs distribuídos (alternativa ao UUID)',
+          'Arquitetura com separação clara: Routes → Functions → Database',
+        ],
+      },
+    ],
+  },
 ]
