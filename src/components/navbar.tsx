@@ -1,89 +1,109 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 
-const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Projetos', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experiência', href: '#experience' },
-  { label: 'Contato', href: '#contact' },
+const links = [
+  { label: 'Trabalhos', href: '/#projects' },
+  { label: 'Sobre', href: '/#about' },
+  { label: 'Experiência', href: '/#experience' },
 ]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const toggle = useRef<HTMLButtonElement>(null)
+  const header = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!isOpen) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+        toggle.current?.focus()
+      }
+    }
+    const closeOutside = (event: PointerEvent) => {
+      if (!header.current?.contains(event.target as Node)) setIsOpen(false)
+    }
+    const desktop = window.matchMedia('(min-width: 760px)')
+    const closeOnDesktop = () => {
+      if (desktop.matches) setIsOpen(false)
+    }
+    document.addEventListener('keydown', closeOnEscape)
+    document.addEventListener('pointerdown', closeOutside)
+    desktop.addEventListener('change', closeOnDesktop)
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape)
+      document.removeEventListener('pointerdown', closeOutside)
+      desktop.removeEventListener('change', closeOnDesktop)
+    }
+  }, [isOpen])
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50 px-4 md:px-6">
-      <div className="max-w-7xl mx-auto flex items-center justify-center">
-        {/* Center Nav - Desktop */}
-        <div className="hidden md:flex liquid-glass rounded-full px-2 py-2 items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="px-4 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="https://github.com/KazuoMurakami"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-black rounded-full px-4 py-2 text-sm font-medium flex items-center gap-1 hover:bg-white/90 transition-colors"
-          >
-            GitHub
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden liquid-glass rounded-full p-3"
+    <header className="site-header" ref={header}>
+      <a className="skip-link" href="#main-content">
+        Pular para o conteúdo
+      </a>
+      <div className="site-shell header-inner">
+        <Link
+          href="/"
+          className="wordmark"
+          aria-label="Octavio Murakami, início"
+          onClick={() => setIsOpen(false)}
         >
-          <div
-            className={`w-5 h-0.5 bg-white transition-transform ${isOpen ? 'rotate-45 translate-y-1' : ''}`}
-          />
-          <div
-            className={`w-5 h-0.5 bg-white mt-1.5 transition-transform ${isOpen ? '-rotate-45 -translate-y-0.5' : ''}`}
-          />
+          <span className="monogram">
+            om<span>.</span>
+          </span>
+          <span className="wordmark-name">
+            Octavio
+            <br />
+            Murakami
+          </span>
+        </Link>
+        <nav className="desktop-nav" aria-label="Navegação principal">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href}>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <Link className="header-contact" href="/#contact">
+          Vamos conversar <ArrowUpRight size={16} aria-hidden="true" />
+        </Link>
+        <button
+          ref={toggle}
+          type="button"
+          className="menu-toggle"
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
+          aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 liquid-glass rounded-2xl p-4 max-w-7xl mx-auto"
+      <nav
+        id="mobile-navigation"
+        className="mobile-nav"
+        aria-label="Navegação móvel"
+        hidden={!isOpen}
+      >
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={() => setIsOpen(false)}
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 text-sm font-medium text-white/90 hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="https://github.com/KazuoMurakami"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block px-4 py-3 text-sm font-medium text-white/90 hover:text-white transition-colors"
-            >
-              GitHub
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+            {link.label}
+            <ArrowUpRight size={20} aria-hidden="true" />
+          </Link>
+        ))}
+        <Link href="/#contact" onClick={() => setIsOpen(false)}>
+          Vamos conversar
+          <ArrowUpRight size={20} aria-hidden="true" />
+        </Link>
+      </nav>
+    </header>
   )
 }

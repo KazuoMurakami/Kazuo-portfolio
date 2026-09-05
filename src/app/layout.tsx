@@ -12,14 +12,14 @@ const instrumentSerif = Instrument_Serif({
 
 const barlow = Barlow({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-body',
 })
 
 export const metadata = {
-  title: 'Octavio Murakami | Full-Stack Developer',
+  title: 'Octavio Murakami | Desenvolvimento Full-Stack',
   description:
-    'Desenvolvedor Full-Stack inovador e criativo, transformando ideias em realidade com tecnologia.',
+    'Sistemas para a vida real. Conheça meu trabalho com CRM e operação na REDD, e-commerce B2B na IceCube, interfaces, APIs e integrações.',
 }
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
       lang="pt-br"
       className={`${instrumentSerif.variable} ${barlow.variable} scroll-smooth`}
     >
-      <body className="font-sans overflow-x-hidden">{children}</body>
+      <body className="font-sans">{children}</body>
     </html>
   )
 }

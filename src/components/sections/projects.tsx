@@ -1,98 +1,139 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { ArrowUpRight, Github } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowUpRight, Plus } from 'lucide-react'
 import { projects } from '@/lib/projects'
+import { ReddPreview } from '@/components/redd-preview'
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-16 lg:px-24 bg-black">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <div className="liquid-glass rounded-full px-4 py-1.5 inline-block mb-4">
-          <span className="text-white/80 text-xs font-medium">Portfolio</span>
+    <section
+      id="projects"
+      className="projects-section site-shell"
+      aria-labelledby="projects-title"
+    >
+      <div className="section-heading">
+        <div>
+          <span className="eyebrow section-index">
+            01 / Trabalhos selecionados
+          </span>
+          <h2 id="projects-title">
+            Onde o código
+            <br />
+            <em>encontra a rotina.</em>
+          </h2>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-white tracking-tight leading-[0.9]">
-          Projetos em destaque.
-        </h2>
+        <p>
+          Projetos que acompanho de perto.
+          <br />
+          Problemas reais, decisões e evolução contínua.
+        </p>
       </div>
-
-      {/* Alternating Project Rows */}
-      <div className="space-y-24">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            {/* Text */}
-            <div className="lg:w-1/2 space-y-6">
-              <div className="liquid-glass rounded-full px-3 py-1 inline-block">
-                <span className="text-white/70 text-xs font-medium">
-                  {project.category}
-                </span>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-serif italic text-white leading-tight">
-                {project.title}
-              </h3>
-              <p className="text-white/60 font-light text-sm leading-relaxed">
-                {project.description}
-              </p>
-
-              {/* Tech badges */}
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="liquid-glass rounded-full px-3 py-1 text-white/80 text-xs"
-                  >
-                    {tech}
+      <div className="featured-grid">
+        {projects
+          .filter((project) => project.featured)
+          .map((project, index) => (
+            <article
+              className={'featured-project featured-' + project.id}
+              key={project.id}
+            >
+              <div
+                className={
+                  'project-stage ' +
+                  (project.id === 'redd' ? 'redd-stage' : 'ice-stage')
+                }
+              >
+                <div className="stage-label">
+                  <span>{project.shortTitle}</span>
+                  <span>
+                    {project.id === 'redd'
+                      ? 'SISTEMA INTERNO'
+                      : 'CATÁLOGO → ORÇAMENTO'}
                   </span>
-                ))}
-              </div>
-
-              {/* Actions */}
-              <div className="flex items-center gap-4 pt-2">
-                <Link
-                  href={`/projetos/${project.id}`}
-                  className="liquid-glass-strong rounded-full px-5 py-2.5 text-white text-sm font-medium hover:bg-white/10 transition-colors flex items-center gap-2"
-                >
-                  Ver detalhes
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/60 hover:text-white flex items-center gap-2 text-sm transition-colors"
+                </div>
+                {project.id === 'redd' ? (
+                  <ReddPreview />
+                ) : (
+                  <Link
+                    href={'/projetos/' + project.id}
+                    className="ice-preview"
+                    aria-label="Conhecer o projeto IceCube"
                   >
-                    <Github className="w-4 h-4" />
-                    Código fonte
-                  </a>
+                    <div className="preview-browser">
+                      <span className="browser-dots" aria-hidden="true">
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                      <span>icecube.com.br</span>
+                      <ArrowUpRight size={13} aria-hidden="true" />
+                    </div>
+                    <div className="ice-image">
+                      <Image
+                        src={project.image}
+                        alt="Página da IceCube com catálogo de produtos plásticos personalizados"
+                        fill
+                        sizes="(max-width: 759px) 90vw, 42vw"
+                      />
+                    </div>
+                  </Link>
                 )}
+                <div className="stage-caption">
+                  <span>
+                    {project.id === 'redd'
+                      ? 'Recorte ilustrativo dos fluxos · experimente os botões'
+                      : 'Site público + painel administrativo + API'}
+                  </span>
+                  <span aria-hidden="true">↗</span>
+                </div>
               </div>
-            </div>
-
-            {/* Image */}
-            <div className="lg:w-1/2">
-              <div className="liquid-glass rounded-2xl overflow-hidden aspect-video relative">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
+              <div className="project-caption">
+                <div className="project-number">0{index + 1}</div>
+                <div>
+                  <span className="eyebrow">{project.discipline}</span>
+                  <h3>
+                    <Link href={'/projetos/' + project.id}>
+                      {project.shortTitle}
+                      <ArrowUpRight size={30} aria-hidden="true" />
+                    </Link>
+                  </h3>
+                  <p>{project.description}</p>
+                  <ul className="tech-list" aria-label="Tecnologias">
+                    {project.technologies.slice(0, 4).map((tech) => (
+                      <li key={tech}>{tech}</li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={'/projetos/' + project.id}
+                    className="text-link case-link"
+                  >
+                    Explorar o projeto{' '}
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </article>
+          ))}
       </div>
+      <details className="project-archive">
+        <summary>
+          <span>
+            <span className="eyebrow">Também no meu percurso</span>Outros
+            projetos & experimentos
+          </span>
+          <Plus size={27} aria-hidden="true" />
+        </summary>
+        <div className="archive-list">
+          {projects
+            .filter((project) => !project.featured)
+            .map((project) => (
+              <Link href={'/projetos/' + project.id} key={project.id}>
+                <span>{project.title}</span>
+                <span>{project.technologies.slice(0, 3).join(' / ')}</span>
+                <ArrowUpRight size={20} aria-hidden="true" />
+              </Link>
+            ))}
+        </div>
+      </details>
     </section>
   )
 }

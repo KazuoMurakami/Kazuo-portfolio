@@ -7,6 +7,11 @@ export interface Project {
   demoUrl?: string
   category: 'back-end' | 'web' | 'mobile'
   technologies: string[]
+  featured?: boolean
+  shortTitle?: string
+  discipline?: string
+  role?: string
+  context?: string
   features?: string[]
   highlights?: Array<{
     title: string
@@ -20,10 +25,78 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: '6',
-    title: 'IceCube - Plataforma E-commerce B2B',
+    id: 'redd',
+    title: 'REDD — da venda à expedição',
+    shortTitle: 'REDD',
+    discipline: 'CRM & operação',
+    role: 'Analista de Sistemas · desenvolvimento e evolução full-stack',
+    featured: true,
     description:
-      'Plataforma e-commerce B2B completa para fabricante de plásticos injetáveis personalizados. Sistema de orçamentos, painel administrativo e storefront com arquitetura monorepo de 3 projetos independentes.',
+      'O sistema que acompanha a rotina de uma empresa de brindes: negociação, pedidos, compras, produção e entrega. Meu trabalho está na evolução das interfaces, regras de negócio e integrações que conectam essas etapas.',
+    context:
+      'Uma venda continua muito depois do orçamento aprovado. A equipe precisa acompanhar fornecedores, personalização, filas de produção e expedição, mantendo o contexto do pedido entre setores. É nesse fluxo que concentro meu trabalho na REDD.',
+    image: '',
+    category: 'web',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'AdonisJS',
+      'PostgreSQL',
+      'TanStack Query',
+      'Redis',
+    ],
+    features: [
+      'CRM com orçamentos, metas e visões específicas para vendedores e gestores.',
+      'WhatsApp integrado ao atendimento, com instâncias de vendedores e recepção.',
+      'Gestão de pedidos, compras e solicitações de layout de personalização.',
+      'Filas de produção e acompanhamento das etapas operacionais.',
+      'Controle de estoque, movimentações e integração com fornecedores.',
+      'Expedição com endereços de entrega e solicitações de nota fiscal.',
+    ],
+    highlights: [
+      {
+        title: 'A interface precisa entender a operação',
+        description:
+          'Telas de trabalho têm contextos diferentes. O CRM organiza negociações e metas; a produção acompanha filas; a expedição reúne informações de entrega. A experiência precisa respeitar a rotina de cada equipe.',
+      },
+      {
+        title: 'Regras que atravessam o sistema',
+        description:
+          'Permissões por papel, estados de pedidos e integrações com fornecedores precisam continuar consistentes entre interface e API. Evoluir esse sistema exige olhar para o fluxo completo.',
+      },
+    ],
+    sections: [
+      {
+        title: 'Frontend e experiência de uso',
+        content: [
+          'Next.js e TypeScript com módulos organizados por domínio de negócio.',
+          'TanStack Query para consultas, cache e atualização dos dados após ações.',
+          'Dashboards comerciais com metas, distribuição do funil e acompanhamento de orçamentos.',
+          'Navegação e ações orientadas pelas permissões de cada usuário.',
+        ],
+      },
+      {
+        title: 'API e integrações',
+        content: [
+          'AdonisJS e Lucid com PostgreSQL para os dados da operação.',
+          'Redis e filas para processamento de tarefas.',
+          'Integrações de fornecedores, catálogo, precificação e atendimento via WhatsApp.',
+          'Rotas por domínio para pedidos, produção, estoque e expedição.',
+        ],
+      },
+    ],
+  },
+  {
+    id: '6',
+    title: 'IceCube — um catálogo que vira negócio',
+    shortTitle: 'IceCube',
+    discipline: 'E-commerce B2B',
+    role: 'Freelance · desenvolvimento full-stack',
+    featured: true,
+    description:
+      'Catálogo, orçamentos e gestão para uma fabricante de plásticos injetados. Um projeto freelance que conecta a experiência de quem procura um produto ao trabalho de quem administra a venda.',
+    context:
+      'No B2B, escolher um produto é o começo da conversa. Cores, quantidades e personalização fazem parte do orçamento. A IceCube reúne essa jornada em um site público, um painel administrativo e uma API, com responsabilidades próprias.',
     image: '/icecube.png',
     demoUrl: 'https://icecube.com.br',
     category: 'web',
@@ -39,30 +112,28 @@ export const projects: Project[] = [
       'Swagger',
     ],
     features: [
-      'Storefront público com catálogo de 50+ produtos e sistema de orçamentos',
-      'Painel administrativo com CRUD completo, RBAC (4 roles) e dashboard',
-      'API REST com autenticação JWT dupla (cliente + admin), rate limiting e Swagger docs',
-      'Upload de imagens via Supabase Storage (S3) com organização por pastas',
-      'BFF pattern no storefront com cookies httpOnly para segurança',
-      'Sistema de carrinho de orçamentos via cookies com TTL de 7 dias',
-      'SEO otimizado com SSR, generateMetadata e generateStaticParams',
-      'Mock mode para desenvolvimento frontend independente da API',
+      'Catálogo público com produtos, cores, categorias e solicitação de orçamento',
+      'Painel administrativo para produtos, clientes, conteúdo e orçamentos',
+      'Área do cliente para consultar e acompanhar solicitações de orçamento',
+      'Gestão de imagens, banners e conteúdo do site pelo painel',
+      'Controle de acesso para administração, gestão, vendas e compras',
+      'API com módulos de catálogo, autenticação, orçamentos e integrações de fornecedores',
     ],
     highlights: [
       {
-        title: 'Arquitetura Monorepo Full-Stack',
+        title: 'Três aplicações, um fluxo',
         description:
-          '3 projetos independentes (Storefront Next.js 16, Admin Panel Next.js 15 + TS, API NestJS 10) comunicando via REST. Cada projeto roda em porta própria com deploys independentes. Padrão BFF no storefront para segurança de autenticação.',
+          'Site público e painel administrativo em Next.js, conectados a uma API NestJS via REST. As três aplicações têm responsabilidades próprias. O site usa uma camada BFF para intermediar chamadas autenticadas.',
       },
       {
-        title: 'Sistema de Orçamentos B2B',
+        title: 'O orçamento faz parte da experiência',
         description:
           'Fluxo completo de solicitação de orçamento substituindo carrinho tradicional. Cliente monta lista de produtos com cores e quantidades, solicita orçamento, e acompanha status pela área logada. Admin gerencia, precifica e responde pelo painel.',
       },
       {
-        title: 'RBAC + JWT Duplo',
+        title: 'Cada perfil, seu acesso',
         description:
-          'Autenticação com dois JWT secrets separados (cliente e admin), guards específicos por tipo de usuário, e sistema RBAC com 4 roles (admin, manager, seller, purchasing) controlando acesso tanto no middleware server-side quanto na sidebar client-side.',
+          'Autenticação separada para clientes e administradores, com guards na API e permissões por papel no painel. O controle de acesso acompanha as responsabilidades de cada perfil.',
       },
       {
         title: 'DX e Produtividade',
@@ -94,7 +165,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: 'API (NestJS 10 + Drizzle ORM)',
+        title: 'API (NestJS + Drizzle ORM)',
         content: [
           'NestJS com módulos por domínio, DTOs com class-validator e Swagger auto-gerado',
           'Drizzle ORM com PostgreSQL, migrations e schema type-safe',
@@ -108,7 +179,7 @@ export const projects: Project[] = [
       {
         title: 'Infraestrutura',
         content: [
-          'PostgreSQL como banco principal com schema relacional complexo (25+ entidades)',
+          'PostgreSQL como banco principal para produtos, clientes, orçamentos e conteúdo',
           'Supabase Storage (S3-compatible) para assets de imagens',
           'Deploy independente de cada projeto com variáveis de ambiente separadas',
           'Formatação unificada com Prettier (sem semi, single quotes, trailing comma none)',

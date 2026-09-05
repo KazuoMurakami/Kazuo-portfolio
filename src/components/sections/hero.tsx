@@ -1,97 +1,86 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { ArrowUpRight, Github, Linkedin } from 'lucide-react'
-import { BlurText } from '@/components/blur-text'
-import { AnimatedBackground } from '@/components/animated-bg'
+import { ArrowDown, ArrowDownRight, ArrowUpRight, Braces } from 'lucide-react'
 
 export function HeroSection() {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen overflow-hidden bg-black flex flex-col items-center justify-center"
-    >
-      {/* Animated Background */}
-      <AnimatedBackground />
-
-      {/* Bottom fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 z-[2] h-[300px]"
-        style={{
-          background: 'linear-gradient(to bottom, transparent, black)',
-        }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6">
-        {/* Badge */}
-        <motion.div
-          className="liquid-glass rounded-full px-1.5 py-1.5 flex items-center gap-2 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="bg-white text-black rounded-full px-3 py-1 text-xs font-medium">
-            Open to Work
-          </span>
-          <span className="text-white/80 text-sm pr-3">
-            Desenvolvedor Full-Stack
-          </span>
-        </motion.div>
-
-        {/* Heading */}
-        <BlurText
-          text="Octavio Murakami"
-          className="text-5xl md:text-7xl lg:text-[5.5rem] font-serif italic text-white leading-[0.85] tracking-[-0.04em] max-w-5xl"
-          delay={0.2}
-        />
-
-        {/* Subtext */}
-        <motion.p
-          className="mt-8 text-white/60 font-light text-base md:text-lg max-w-xl leading-relaxed"
-          initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          Desenvolvedor Full-Stack inovador e criativo, transformando ideias em
-          realidade com tecnologia. Foco em React, Next.js, Node.js e Python.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-        >
-          <a
-            href="#contact"
-            className="liquid-glass-strong rounded-full px-6 py-3 text-white font-medium flex items-center gap-2 hover:bg-white/10 transition-colors"
-          >
-            Entre em Contato
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
-          <div className="flex items-center gap-4">
+    <section id="home" className="hero site-shell" aria-labelledby="hero-title">
+      <div className="hero-topline">
+        <span className="eyebrow">
+          <span className="status-dot" /> Desenvolvedor full-stack
+        </span>
+        <span className="eyebrow hero-edition">
+          Portfólio selecionado / 2026
+        </span>
+      </div>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <h1 id="hero-title">
+            Software para
+            <br />a <em>vida real.</em>
+            <span className="hero-asterisk" aria-hidden="true">
+              ✳
+            </span>
+          </h1>
+          <p>
+            Sou Octavio Murakami. Desenvolvo sistemas que fazem parte do dia a
+            dia de uma empresa — da primeira conversa com o cliente ao pedido
+            que sai da produção.
+          </p>
+          <div className="hero-actions">
+            <a href="#projects" className="button-primary">
+              Conheça meu trabalho{' '}
+              <ArrowDownRight size={20} aria-hidden="true" />
+            </a>
             <a
               href="https://github.com/KazuoMurakami"
+              className="text-link"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-white flex items-center gap-2 transition-colors"
             >
-              <Github className="w-5 h-5" />
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/octavio-murakami/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/80 hover:text-white flex items-center gap-2 transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
-              LinkedIn
+              GitHub <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           </div>
-        </motion.div>
+        </div>
+        <aside
+          className="workbench"
+          aria-label="Minha atuação: interface, regras de negócio e dados"
+        >
+          <div className="workbench-top">
+            <Braces size={22} aria-hidden="true" />
+            <span>CADERNO DE TRABALHO / 01</span>
+          </div>
+          <div className="workbench-title">
+            Do clique
+            <br />
+            <em>ao banco.</em>
+          </div>
+          <div className="system-layers">
+            <div>
+              <span>01</span> Interface <span>↗</span>
+            </div>
+            <div>
+              <span>02</span> Regras de negócio <span>↔</span>
+            </div>
+            <div>
+              <span>03</span> Dados & integrações <span>↳</span>
+            </div>
+          </div>
+          <div className="workbench-bottom">
+            <span>FRONTEND + BACKEND</span>
+            <span aria-hidden="true">↙</span>
+          </div>
+          <span className="workbench-note">
+            É aqui que as pontas se conectam.
+          </span>
+        </aside>
+      </div>
+      <div className="hero-bottom">
+        <span>
+          Atualmente, entre <a href="/projetos/redd">REDD</a> e{' '}
+          <a href="/projetos/6">IceCube</a>.
+        </span>
+        <a href="#projects" className="scroll-cue">
+          Role para explorar <ArrowDown size={16} aria-hidden="true" />
+        </a>
       </div>
     </section>
   )

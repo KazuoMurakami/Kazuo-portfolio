@@ -1,114 +1,83 @@
-'use client'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
 
-import { motion } from 'framer-motion'
-import { Briefcase, GraduationCap } from 'lucide-react'
-import { experiences } from '@/app/profile/lib/experience'
+const experience = [
+  {
+    period: 'JAN 2025 — PRESENTE',
+    company: 'REDD Brindes',
+    title: 'Analista de Sistemas',
+    description:
+      'Evolução do sistema interno: interfaces, integrações, automações e recursos para a rotina comercial e de produção.',
+    href: '/projetos/redd',
+    tag: 'TRABALHO',
+  },
+  {
+    period: 'PROJETO FREELANCE',
+    company: 'IceCube',
+    title: 'Desenvolvimento full-stack',
+    description:
+      'Desenvolvimento do catálogo B2B, painel administrativo e API que conectam produtos, clientes e orçamentos.',
+    href: '/projetos/6',
+    tag: 'FREELANCE',
+  },
+  {
+    period: '2022 — 2024',
+    company: 'Universidade São Judas Tadeu',
+    title: 'Análise e Desenvolvimento de Sistemas',
+    description:
+      'Formação em desenvolvimento de software, algoritmos, estruturas de dados e banco de dados.',
+    tag: 'FORMAÇÃO',
+  },
+]
 
 export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative py-24 px-6 md:px-16 lg:px-24 overflow-hidden"
+      className="experience-section site-shell"
+      aria-labelledby="experience-title"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-white/[0.02] to-black z-0" />
-
-      {/* Top Fade */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[200px] z-[1]"
-        style={{ background: 'linear-gradient(to bottom, black, transparent)' }}
-      />
-
-      {/* Bottom Fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[200px] z-[1]"
-        style={{ background: 'linear-gradient(to top, black, transparent)' }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="liquid-glass rounded-full px-4 py-1.5 inline-block mb-4">
-            <span className="text-white/80 text-xs font-medium">
-              Trajetória
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-white tracking-tight leading-[0.9]">
-            Experiência profissional.
+      <div className="section-heading">
+        <div>
+          <span className="eyebrow section-index">03 / Percurso</span>
+          <h2 id="experience-title">
+            Aprender, construir.
+            <br />
+            <em>E continuar.</em>
           </h2>
         </div>
-
-        {/* Experience Cards */}
-        <div className="max-w-4xl mx-auto space-y-8">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              className="liquid-glass rounded-3xl p-8 md:p-10"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              {/* Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="liquid-glass-strong rounded-full w-10 h-10 flex items-center justify-center">
-                    {exp.type === 'trabalho' ? (
-                      <Briefcase className="w-5 h-5 text-white" />
-                    ) : (
-                      <GraduationCap className="w-5 h-5 text-white" />
-                    )}
-                  </div>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-serif italic text-white">
-                      {exp.title}
-                    </h3>
-                    <p className="text-white/60 text-sm">{exp.company}</p>
-                  </div>
-                </div>
-                <span className="liquid-glass rounded-full px-3 py-1 text-white/70 text-xs font-medium w-fit">
-                  {exp.period}
-                </span>
-              </div>
-
-              {/* Description */}
-              <p className="text-white/60 font-light text-sm leading-relaxed mb-6">
-                {exp.description}
-              </p>
-
-              {/* Information items */}
-              {exp.information && (
-                <div className="space-y-4 mb-6">
-                  {exp.information.map((info, i) => (
-                    <div key={i} className="border-t border-white/10 pt-4">
-                      <h4 className="text-white font-medium text-sm mb-2">
-                        {info.title}
-                      </h4>
-                      <p className="text-white/50 font-light text-sm leading-relaxed">
-                        {info.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Skills */}
-              {exp.skills && (
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="liquid-glass rounded-full px-3 py-1 text-white/80 text-xs"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+        <p>
+          O trabalho muda.
+          <br />A vontade de entender, não.
+        </p>
+      </div>
+      <div className="experience-list">
+        {experience.map((item) => (
+          <article key={item.company}>
+            <div className="experience-date">
+              <span className="eyebrow">{item.period}</span>
+              <span className="experience-tag">{item.tag}</span>
+            </div>
+            <div>
+              <h3>{item.company}</h3>
+              <h4>{item.title}</h4>
+              <p>{item.description}</p>
+            </div>
+            {item.href ? (
+              <Link
+                href={item.href}
+                className="round-link"
+                aria-label={'Conhecer o projeto ' + item.company}
+              >
+                <ArrowUpRight size={24} aria-hidden="true" />
+              </Link>
+            ) : (
+              <span className="education-mark" aria-hidden="true">
+                ↳
+              </span>
+            )}
+          </article>
+        ))}
       </div>
     </section>
   )
