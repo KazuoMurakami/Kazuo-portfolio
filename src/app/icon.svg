@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Octavio Kazuo — OK</title>
+  <desc id="desc">Ícone geométrico OK em preto grafite e vermelho sobre fundo branco.</desc>
+
+  <rect width="512" height="512" rx="64" fill="#FFFFFF"/>
+
+  <path d="M84 140 L140 84 H244 L300 140 V300 L244 356 H140 L84 300 Z"
+        fill="#171717"/>
+  <path d="M146 156 H224 L244 176 V264 L224 284 H146 L126 264 V176 Z"
+        fill="#FFFFFF"/>
+
+  <path d="M220 284 L244 260 L300 204 V300 L244 356 H204 Z"
+        fill="#C62828"/>
+  <path d="M300 172 L336 208 L300 244 Z"
+        fill="#C62828"/>
+
+  <path d="M292 84 H338 V228 L414 140 H474 L360 256 L474 372 H414 L338 284 V428 H292 Z"
+        fill="#171717"/>
+
+  <g fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M122 126 V188 L148 214"/>
+    <path d="M146 126 V174"/>
+    <path d="M382 166 L414 134"/>
+    <path d="M398 186 L430 154"/>
+  </g>
+
+  <g fill="#FFFFFF">
+    <circle cx="122" cy="126" r="10"/>
+    <circle cx="146" cy="126" r="10"/>
+    <circle cx="148" cy="214" r="10"/>
+    <circle cx="382" cy="166" r="10"/>
+    <circle cx="414" cy="134" r="10"/>
+    <circle cx="398" cy="186" r="10"/>
+    <circle cx="430" cy="154" r="10"/>
+  </g>
+
+  <rect x="400" y="292" width="52" height="52" rx="8" fill="#C62828"/>
+  <path d="M416 306 V330 M428 306 V330 M416 318 H436 M424 330 V340"
+        fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+</svg>

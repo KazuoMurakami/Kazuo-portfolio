@@ -16,6 +16,11 @@ const barlow = Barlow({
   variable: '--font-body',
 })
 
+export const viewport = {
+  colorScheme: 'dark',
+  themeColor: '#040d12',
+}
+
 export const metadata = {
   title: 'Octavio Murakami | Desenvolvimento Full-Stack',
   description:
@@ -30,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-br"
-      className={`${instrumentSerif.variable} ${barlow.variable} scroll-smooth`}
+      className={`${instrumentSerif.variable} ${barlow.variable} dark scroll-smooth`}
     >
       <body className="font-sans">{children}</body>
     </html>
