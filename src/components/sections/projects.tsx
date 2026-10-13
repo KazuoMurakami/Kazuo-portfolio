@@ -1,139 +1,112 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight, Plus } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { projects } from '@/lib/projects'
 import { ReddPreview } from '@/components/redd-preview'
 
 export function ProjectsSection() {
+  const featured = projects.filter((project) => project.featured)
+  const others = projects.filter((project) => !project.featured)
+
   return (
     <section
       id="projects"
       className="projects-section site-shell"
       aria-labelledby="projects-title"
     >
-      <div className="section-heading">
-        <div>
-          <span className="eyebrow section-index">
-            01 / Trabalhos selecionados
-          </span>
-          <h2 id="projects-title">
-            Onde o código
-            <br />
-            <em>encontra a rotina.</em>
-          </h2>
-        </div>
+      <header className="section-head">
+        <h2 id="projects-title" className="section-title">
+          Trabalhos
+        </h2>
         <p>
-          Projetos que acompanho de perto.
-          <br />
-          Problemas reais, decisões e evolução contínua.
+          Os dois sistemas em que trabalho hoje e alguns projetos anteriores.
         </p>
-      </div>
-      <div className="featured-grid">
-        {projects
-          .filter((project) => project.featured)
-          .map((project, index) => (
-            <article
-              className={'featured-project featured-' + project.id}
-              key={project.id}
-            >
-              <div
-                className={
-                  'project-stage ' +
-                  (project.id === 'redd' ? 'redd-stage' : 'ice-stage')
-                }
-              >
-                <div className="stage-label">
-                  <span>{project.shortTitle}</span>
-                  <span>
-                    {project.id === 'redd'
-                      ? 'SISTEMA INTERNO'
-                      : 'CATÁLOGO → ORÇAMENTO'}
-                  </span>
+      </header>
+
+      <div className="featured-list">
+        {featured.map((project) => (
+          <article className="featured-project" key={project.id}>
+            <div className="featured-head">
+              <h3>
+                <Link href={'/projetos/' + project.id}>
+                  {project.shortTitle}
+                </Link>
+              </h3>
+              <p>{project.discipline}</p>
+            </div>
+
+            <figure className="featured-visual">
+              {project.id === 'redd' ? (
+                <ReddPreview />
+              ) : (
+                <div className="site-shot">
+                  <div className="site-shot-bar">icecube.com.br</div>
+                  <div className="site-shot-image">
+                    <Image
+                      src={project.image}
+                      alt="Página inicial da IceCube, com o catálogo de produtos plásticos personalizados"
+                      fill
+                      sizes="(max-width: 899px) 92vw, 680px"
+                    />
+                  </div>
                 </div>
+              )}
+              <figcaption>
                 {project.id === 'redd' ? (
-                  <ReddPreview />
+                  'Recorte ilustrativo com dados fictícios. Alterne entre CRM e Produção.'
                 ) : (
-                  <Link
-                    href={'/projetos/' + project.id}
-                    className="ice-preview"
-                    aria-label="Conhecer o projeto IceCube"
-                  >
-                    <div className="preview-browser">
-                      <span className="browser-dots" aria-hidden="true">
-                        <i />
-                        <i />
-                        <i />
-                      </span>
-                      <span>icecube.com.br</span>
-                      <ArrowUpRight size={13} aria-hidden="true" />
-                    </div>
-                    <div className="ice-image">
-                      <Image
-                        src={project.image}
-                        alt="Página da IceCube com catálogo de produtos plásticos personalizados"
-                        fill
-                        sizes="(max-width: 759px) 90vw, 42vw"
-                      />
-                    </div>
-                  </Link>
+                  <>
+                    Página inicial do site público.{' '}
+                    <a
+                      href={project.demoUrl}
+                      className="text-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Abrir o site
+                      <ArrowUpRight size={14} aria-hidden="true" />
+                    </a>
+                  </>
                 )}
-                <div className="stage-caption">
-                  <span>
-                    {project.id === 'redd'
-                      ? 'Recorte ilustrativo dos fluxos · experimente os botões'
-                      : 'Site público + painel administrativo + API'}
-                  </span>
-                  <span aria-hidden="true">↗</span>
-                </div>
-              </div>
-              <div className="project-caption">
-                <div className="project-number">0{index + 1}</div>
+              </figcaption>
+            </figure>
+
+            <div className="featured-body">
+              <p>{project.description}</p>
+              <dl className="project-facts">
                 <div>
-                  <span className="eyebrow">{project.discipline}</span>
-                  <h3>
-                    <Link href={'/projetos/' + project.id}>
-                      {project.shortTitle}
-                      <ArrowUpRight size={30} aria-hidden="true" />
-                    </Link>
-                  </h3>
-                  <p>{project.description}</p>
-                  <ul className="tech-list" aria-label="Tecnologias">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <li key={tech}>{tech}</li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={'/projetos/' + project.id}
-                    className="text-link case-link"
-                  >
-                    Explorar o projeto{' '}
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                  <dt>Papel</dt>
+                  <dd>{project.role}</dd>
                 </div>
-              </div>
-            </article>
-          ))}
-      </div>
-      <details className="project-archive">
-        <summary>
-          <span>
-            <span className="eyebrow">Também no meu percurso</span>Outros
-            projetos & experimentos
-          </span>
-          <Plus size={27} aria-hidden="true" />
-        </summary>
-        <div className="archive-list">
-          {projects
-            .filter((project) => !project.featured)
-            .map((project) => (
-              <Link href={'/projetos/' + project.id} key={project.id}>
-                <span>{project.title}</span>
-                <span>{project.technologies.slice(0, 3).join(' / ')}</span>
-                <ArrowUpRight size={20} aria-hidden="true" />
+                <div>
+                  <dt>Stack</dt>
+                  <dd>{project.technologies.slice(0, 5).join(', ')}</dd>
+                </div>
+              </dl>
+              <Link href={'/projetos/' + project.id} className="text-link">
+                Ver detalhes do projeto
               </Link>
-            ))}
-        </div>
-      </details>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="other-projects">
+        <h3>Outros projetos</h3>
+        <ul>
+          {others.map((project) => (
+            <li key={project.id}>
+              <Link href={'/projetos/' + project.id}>
+                <span className="other-title">{project.title}</span>
+                <span className="other-description">{project.description}</span>
+                <span className="other-stack">
+                  {project.technologies.slice(0, 3).join(', ')}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   )
 }

@@ -26,15 +26,15 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'redd',
-    title: 'REDD — da venda à expedição',
-    shortTitle: 'REDD',
-    discipline: 'CRM & operação',
-    role: 'Analista de Sistemas · desenvolvimento e evolução full-stack',
+    title: 'Sistema interno da REDD Brindes',
+    shortTitle: 'REDD Brindes',
+    discipline: 'CRM e operação',
+    role: 'Analista de sistemas, desenvolvimento full-stack',
     featured: true,
     description:
-      'O sistema que acompanha a rotina de uma empresa de brindes: negociação, pedidos, compras, produção e entrega. Meu trabalho está na evolução das interfaces, regras de negócio e integrações que conectam essas etapas.',
+      'O sistema que acompanha a rotina de uma empresa de brindes: negociação, pedidos, compras, produção e entrega. Trabalho na evolução das telas, das regras de negócio e das integrações entre essas etapas.',
     context:
-      'Uma venda continua muito depois do orçamento aprovado. A equipe precisa acompanhar fornecedores, personalização, filas de produção e expedição, mantendo o contexto do pedido entre setores. É nesse fluxo que concentro meu trabalho na REDD.',
+      'Uma venda continua muito depois do orçamento aprovado. A equipe precisa acompanhar fornecedores, personalização, filas de produção e expedição sem perder o histórico do pedido de um setor para outro. É nesse fluxo que concentro meu trabalho na REDD.',
     image: '',
     category: 'web',
     technologies: [
@@ -55,14 +55,14 @@ export const projects: Project[] = [
     ],
     highlights: [
       {
-        title: 'A interface precisa entender a operação',
+        title: 'Telas pensadas para cada equipe',
         description:
-          'Telas de trabalho têm contextos diferentes. O CRM organiza negociações e metas; a produção acompanha filas; a expedição reúne informações de entrega. A experiência precisa respeitar a rotina de cada equipe.',
+          'O CRM organiza negociações e metas, a produção acompanha filas e a expedição reúne os dados de entrega. Cada tela segue a rotina de quem a usa.',
       },
       {
-        title: 'Regras que atravessam o sistema',
+        title: 'Regras iguais na tela e na API',
         description:
-          'Permissões por papel, estados de pedidos e integrações com fornecedores precisam continuar consistentes entre interface e API. Evoluir esse sistema exige olhar para o fluxo completo.',
+          'Permissões por papel, estados de pedido e integrações com fornecedores precisam valer da mesma forma na interface e na API. Por isso, qualquer mudança começa olhando o fluxo inteiro.',
       },
     ],
     sections: [
@@ -88,15 +88,15 @@ export const projects: Project[] = [
   },
   {
     id: '6',
-    title: 'IceCube — um catálogo que vira negócio',
+    title: 'Catálogo B2B da IceCube',
     shortTitle: 'IceCube',
     discipline: 'E-commerce B2B',
-    role: 'Freelance · desenvolvimento full-stack',
+    role: 'Freelancer, desenvolvimento full-stack',
     featured: true,
     description:
-      'Catálogo, orçamentos e gestão para uma fabricante de plásticos injetados. Um projeto freelance que conecta a experiência de quem procura um produto ao trabalho de quem administra a venda.',
+      'Catálogo, pedidos de orçamento e painel de gestão para uma fabricante de plásticos injetados. Desenvolvi o site público, o painel administrativo e a API.',
     context:
-      'No B2B, escolher um produto é o começo da conversa. Cores, quantidades e personalização fazem parte do orçamento. A IceCube reúne essa jornada em um site público, um painel administrativo e uma API, com responsabilidades próprias.',
+      'No B2B, escolher um produto é só o começo da conversa: cores, quantidades e personalização entram no orçamento. A IceCube reúne esse caminho em um site público, um painel administrativo e uma API, cada um com sua responsabilidade.',
     image: '/icecube.png',
     demoUrl: 'https://icecube.com.br',
     category: 'web',
@@ -121,24 +121,24 @@ export const projects: Project[] = [
     ],
     highlights: [
       {
-        title: 'Três aplicações, um fluxo',
+        title: 'Três aplicações separadas',
         description:
           'Site público e painel administrativo em Next.js, conectados a uma API NestJS via REST. As três aplicações têm responsabilidades próprias. O site usa uma camada BFF para intermediar chamadas autenticadas.',
       },
       {
-        title: 'O orçamento faz parte da experiência',
+        title: 'Orçamento no lugar do carrinho',
         description:
-          'Fluxo completo de solicitação de orçamento substituindo carrinho tradicional. Cliente monta lista de produtos com cores e quantidades, solicita orçamento, e acompanha status pela área logada. Admin gerencia, precifica e responde pelo painel.',
+          'Em vez de um carrinho, o cliente monta uma lista de produtos com cores e quantidades, pede o orçamento e acompanha o status na área logada. A equipe precifica e responde pelo painel.',
       },
       {
-        title: 'Cada perfil, seu acesso',
+        title: 'Acesso separado por perfil',
         description:
-          'Autenticação separada para clientes e administradores, com guards na API e permissões por papel no painel. O controle de acesso acompanha as responsabilidades de cada perfil.',
+          'Clientes e administradores têm autenticação própria, com guards na API e permissões por papel no painel.',
       },
       {
-        title: 'DX e Produtividade',
+        title: 'Ferramentas para desenvolver mais rápido',
         description:
-          'Factories genéricas como createCrudApi<T>() e hook useFetch<T>() no admin. Schema Drizzle com camelCase/snake_case automático. Mock mode no storefront para desenvolvimento desacoplado. Swagger auto-gerado para documentação da API.',
+          'Factories genéricas como createCrudApi<T>() e o hook useFetch<T>() no painel. Schema Drizzle com conversão automática entre camelCase e snake_case, modo mock no site para desenvolver sem a API e documentação Swagger gerada automaticamente.',
       },
     ],
     sections: [
@@ -318,10 +318,10 @@ export const projects: Project[] = [
     id: '4',
     title: 'Scraper de Produtos',
     description:
-      'sistema de automação de cadastro de produtos desenvolvido para a REDD Brindes',
+      'Automação do cadastro de produtos no ERP da REDD Brindes, a partir de planilhas e do site dos fornecedores.',
     image: '/erp.jpeg',
     category: 'back-end',
-    technologies: ['python', 'selenium', 'beautifulsoup', 'pandas'],
+    technologies: ['Python', 'Selenium', 'BeautifulSoup', 'Pandas'],
     features: [
       'Coletar informações do excel',
       'Coletar informações do site',
@@ -332,7 +332,7 @@ export const projects: Project[] = [
       {
         title: 'Cadastro de produto',
         description:
-          'sistema de automação de cadastro de produtos desenvolvido para a REDD Brindes. Este aplicativo foi criado para otimizar e automatizar o processo de cadastro de produtos, eliminando tarefas repetitivas, reduzindo o tempo gasto e minimizando erros manuais.',
+          'Automação feita para a REDD Brindes. Lê os dados de planilhas e do site do fornecedor e preenche o cadastro no ERP, tirando da equipe uma tarefa repetitiva e sujeita a erro.',
       },
     ],
   },
