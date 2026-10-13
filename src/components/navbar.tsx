@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const links = [
   { label: 'Trabalhos', href: '/#projects' },
   { label: 'Sobre', href: '/#about' },
   { label: 'Experiência', href: '/#experience' },
+  { label: 'Contato', href: '/#contact' },
 ]
 
 export function Navbar() {
@@ -26,7 +27,7 @@ export function Navbar() {
     const closeOutside = (event: PointerEvent) => {
       if (!header.current?.contains(event.target as Node)) setIsOpen(false)
     }
-    const desktop = window.matchMedia('(min-width: 760px)')
+    const desktop = window.matchMedia('(min-width: 720px)')
     const closeOnDesktop = () => {
       if (desktop.matches) setIsOpen(false)
     }
@@ -46,20 +47,8 @@ export function Navbar() {
         Pular para o conteúdo
       </a>
       <div className="site-shell header-inner">
-        <Link
-          href="/"
-          className="wordmark"
-          aria-label="Octavio Murakami, início"
-          onClick={() => setIsOpen(false)}
-        >
-          <span className="monogram">
-            om<span>.</span>
-          </span>
-          <span className="wordmark-name">
-            Octavio
-            <br />
-            Murakami
-          </span>
+        <Link href="/" className="wordmark" onClick={() => setIsOpen(false)}>
+          Octavio Murakami
         </Link>
         <nav className="desktop-nav" aria-label="Navegação principal">
           {links.map((link) => (
@@ -68,9 +57,6 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <Link className="header-contact" href="/#contact">
-          Vamos conversar <ArrowUpRight size={16} aria-hidden="true" />
-        </Link>
         <button
           ref={toggle}
           type="button"
@@ -80,7 +66,7 @@ export function Navbar() {
           aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={23} /> : <Menu size={23} />}
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
       <nav
@@ -96,13 +82,8 @@ export function Navbar() {
             onClick={() => setIsOpen(false)}
           >
             {link.label}
-            <ArrowUpRight size={20} aria-hidden="true" />
           </Link>
         ))}
-        <Link href="/#contact" onClick={() => setIsOpen(false)}>
-          Vamos conversar
-          <ArrowUpRight size={20} aria-hidden="true" />
-        </Link>
       </nav>
     </header>
   )

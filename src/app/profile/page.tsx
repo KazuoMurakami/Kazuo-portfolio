@@ -11,9 +11,7 @@ export default function ProfilePage() {
     <>
       <Navbar />
       <main id="main-content" className="profile-page">
-        <h1 className="site-shell profile-heading">
-          Prazer, <em>Octavio.</em>
-        </h1>
+        <h1 className="site-shell profile-heading">Octavio Murakami</h1>
         <AboutSection />
         <ExperienceSection />
       </main>

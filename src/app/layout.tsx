@@ -1,19 +1,18 @@
 import './globals.css'
 // eslint-disable-next-line camelcase
-import { Instrument_Serif, Barlow } from 'next/font/google'
-
-// eslint-disable-next-line camelcase
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
-  weight: '400',
-  style: 'italic',
-  variable: '--font-heading',
-})
+import { Barlow, Barlow_Semi_Condensed } from 'next/font/google'
 
 const barlow = Barlow({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600'],
   variable: '--font-body',
+})
+
+// eslint-disable-next-line camelcase
+const barlowDisplay = Barlow_Semi_Condensed({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-display',
 })
 
 export const viewport = {
@@ -22,9 +21,9 @@ export const viewport = {
 }
 
 export const metadata = {
-  title: 'Octavio Murakami | Desenvolvimento Full-Stack',
+  title: 'Octavio Murakami | Desenvolvedor full-stack',
   description:
-    'Sistemas para a vida real. Conheça meu trabalho com CRM e operação na REDD, e-commerce B2B na IceCube, interfaces, APIs e integrações.',
+    'Desenvolvedor full-stack. Sistemas internos, CRM e operação na REDD Brindes e o catálogo B2B da IceCube.',
 }
 
 export default function RootLayout({
@@ -35,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-br"
-      className={`${instrumentSerif.variable} ${barlow.variable} dark scroll-smooth`}
+      className={`${barlow.variable} ${barlowDisplay.variable} dark scroll-smooth`}
     >
       <body className="font-sans">{children}</body>
     </html>

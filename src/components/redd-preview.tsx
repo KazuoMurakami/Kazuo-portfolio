@@ -1,18 +1,12 @@
 'use client'
 
 import { useId, useState } from 'react'
-import {
-  ArrowRight,
-  LayoutDashboard,
-  MessageSquare,
-  Package,
-  Rows3,
-} from 'lucide-react'
+import { LayoutDashboard, MessageSquare, Package, Rows3 } from 'lucide-react'
 
 const views = {
   crm: {
     label: 'CRM',
-    heading: 'Cada conversa, um próximo passo.',
+    heading: 'Funil comercial',
     columns: [
       {
         title: 'Em negociação',
@@ -36,7 +30,7 @@ const views = {
   },
   production: {
     label: 'Produção',
-    heading: 'Do pedido à próxima etapa.',
+    heading: 'Fila de produção',
     columns: [
       {
         title: 'Recebimento',
@@ -67,48 +61,39 @@ export function ReddPreview() {
   const active = views[view]
   return (
     <div className="redd-preview">
-      <div className="preview-browser">
-        <span className="browser-dots" aria-hidden="true">
-          <i />
-          <i />
-          <i />
+      <div className="preview-bar">
+        <span>Sistema REDD</span>
+        <span className="preview-user" aria-hidden="true">
+          OM
         </span>
-        <span>REDD / espaço de trabalho</span>
-        <span className="preview-online">●</span>
       </div>
       <div className="redd-app">
         <div className="preview-sidebar" aria-hidden="true">
-          <b>
-            r<span>.</span>
-          </b>
-          <LayoutDashboard size={15} />
-          <MessageSquare size={15} />
-          <Package size={15} />
-          <Rows3 size={15} />
-          <span className="sidebar-avatar">OM</span>
+          <LayoutDashboard size={16} />
+          <MessageSquare size={16} />
+          <Package size={16} />
+          <Rows3 size={16} />
         </div>
         <div className="preview-body">
-          <div className="preview-heading">
-            <span>VISÃO DA OPERAÇÃO</span>
-            <span>REDD BRINDES</span>
-          </div>
-          <p className="preview-title">{active.heading}</p>
-          <div
-            className="preview-switch"
-            role="group"
-            aria-label="Explorar os fluxos da REDD"
-          >
-            {(Object.keys(views) as View[]).map((key) => (
-              <button
-                key={key}
-                type="button"
-                aria-pressed={view === key}
-                aria-controls={id}
-                onClick={() => setView(key)}
-              >
-                {views[key].label}
-              </button>
-            ))}
+          <div className="preview-top">
+            <p className="preview-title">{active.heading}</p>
+            <div
+              className="preview-switch"
+              role="group"
+              aria-label="Explorar os fluxos da REDD"
+            >
+              {(Object.keys(views) as View[]).map((key) => (
+                <button
+                  key={key}
+                  type="button"
+                  aria-pressed={view === key}
+                  aria-controls={id}
+                  onClick={() => setView(key)}
+                >
+                  {views[key].label}
+                </button>
+              ))}
+            </div>
           </div>
           <div
             className="preview-kanban"
@@ -119,13 +104,10 @@ export function ReddPreview() {
             {active.columns.map((column, index) => (
               <div className="kanban-column" key={column.title}>
                 <div className="kanban-title">
-                  <i />
+                  <span>{index + 1}</span>
                   {column.title}
                 </div>
                 <div className="kanban-card">
-                  <span className="kanban-index">
-                    0{index + 1} <ArrowRight size={12} aria-hidden="true" />
-                  </span>
                   <strong>{column.name}</strong>
                   <p>{column.detail}</p>
                   <span className="kanban-tag">{column.tag}</span>
