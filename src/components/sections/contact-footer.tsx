@@ -1,47 +1,41 @@
-import { ArrowUpRight } from 'lucide-react'
+import { Github, Linkedin } from 'lucide-react'
 
 export function ContactFooterSection() {
   return (
-    <footer
-      id="contact"
-      className="contact-section"
-      aria-labelledby="contact-title"
-    >
-      <div className="site-shell">
-        <h2 id="contact-title" className="section-title">
-          Contato
-        </h2>
-        <p className="contact-lead">
-          Tem um sistema para evoluir, uma integração para fazer ou uma vaga
-          aberta? Me mande um e-mail.
+    <footer id="contact" aria-labelledby="contact-title">
+      <div className="contact band">
+        <h2 id="contact-title">Tem um sistema para tirar do papel?</h2>
+        <p>
+          Seja um projeto freelance ou uma vaga, me conte por e-mail o que você
+          precisa. Eu mesmo respondo.
         </p>
         <a className="contact-email" href="mailto:octaviokazuo12@hotmail.com">
           octaviokazuo12@hotmail.com
         </a>
-        <div className="contact-links">
+        <div className="hero-actions">
           <a
             href="https://github.com/KazuoMurakami"
-            className="text-link"
+            className="btn btn-line"
             target="_blank"
             rel="noopener noreferrer"
           >
+            <Github size={17} aria-hidden="true" />
             GitHub
-            <ArrowUpRight size={15} aria-hidden="true" />
           </a>
           <a
             href="https://www.linkedin.com/in/octavio-murakami/"
-            className="text-link"
+            className="btn btn-line"
             target="_blank"
             rel="noopener noreferrer"
           >
+            <Linkedin size={17} aria-hidden="true" />
             LinkedIn
-            <ArrowUpRight size={15} aria-hidden="true" />
           </a>
         </div>
-        <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Octavio Murakami</span>
-          <a href="#main-content">Voltar ao topo</a>
-        </div>
+      </div>
+      <div className="footer">
+        <span>© {new Date().getFullYear()} Octavio Murakami</span>
+        <a href="#main-content">Voltar ao topo</a>
       </div>
     </footer>
   )

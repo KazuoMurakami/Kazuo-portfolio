@@ -8,14 +8,14 @@ export const metadata: Metadata = { title: 'Sobre | Octavio Murakami' }
 
 export default function ProfilePage() {
   return (
-    <>
+    <div className="frame">
       <Navbar />
-      <main id="main-content" className="profile-page">
-        <h1 className="site-shell profile-heading">Octavio Murakami</h1>
+      <main id="main-content">
+        <h1 className="profile-heading">Octavio Murakami</h1>
         <AboutSection />
         <ExperienceSection />
       </main>
       <ContactFooterSection />
-    </>
+    </div>
   )
 }
